@@ -1,11 +1,10 @@
 # Rusty Chest
 
-A clean password manager built with Rust
+A clean password manager written in Rust
 
 ## Installation
 
-Fedora
-
 ```bash
-dnf install cargo rustc openssl-devel
+docker pull
+docker run
 ```

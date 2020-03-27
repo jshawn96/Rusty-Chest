@@ -1,7 +1,14 @@
 extern crate rand;
-use rand::Rng;
+
+
+use rand::{thread_rng, Rng};
+use rand::distributions::Alphanumeric;
 
 fn main() {
-    let mut rng = rand::thread_rng();
-    println!("Random f64: {}", rng.gen::<f64>());
+    let rand_str: String = thread_rng()
+        .sample_iter(&Alphanumeric)
+        .take(30)
+        .collect();
+
+    println!("{}", rand_str);
 }
