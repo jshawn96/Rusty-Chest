@@ -2,9 +2,8 @@
 
 A clean password manager written in Rust
 
-## Installation
+## Usage
 
 ```bash
-docker pull
-docker run
+cargo run
 ```
