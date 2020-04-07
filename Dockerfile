@@ -1,12 +1,16 @@
-FROM fedora:31
-LABEL Description = "Rusty Chest"
+FROM alpine:latest
+LABEL Description = "rusty_chest"
 
-RUN dnf update
-RUN dnf install -y openssl-devel rustc cargo
-
-# Create working directory
-COPY . /opt
+# set a directory for the app
 WORKDIR /opt
+# copy all the files to the container
+COPY . .
 
-# Run
+# install cargo
+RUN apk add --update cargo
+
+# define the port number the container should expose
+EXPOSE 5000
+
+# start app
 RUN cargo run
