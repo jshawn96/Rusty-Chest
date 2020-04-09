@@ -4,13 +4,13 @@ LABEL Description = "rusty_chest"
 # set a directory for the app
 WORKDIR /opt
 # copy all the files to the container
-COPY . .
+COPY . . 
 
-# install cargo
-RUN apk add --update cargo
+# install cargo, PostgreSQL
+RUN apk add --update cargo postgresql
 
-# define the port number the container should expose
-EXPOSE 5000
+# install Diesel
+RUN cargo install diesel_cli --no-default-features --features postgres
 
-# start app
-RUN cargo run
+# compile with optimizations
+RUN cargo build --release

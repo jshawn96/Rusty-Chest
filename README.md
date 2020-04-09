@@ -7,6 +7,9 @@ A clean password manager written in Rust
 ```bash
 dnf install podman -y
 
-make build
-make run
+podman build -t rusty_chest .
+podman run -it rusty_chest
+
+# inside container
+./target/release/rusty_chest
 ```
